@@ -12,6 +12,10 @@
 
 #ifndef SERVER_H
 # define SERVER_H
+/** _GNU_SOURCE is needed for signal.h / sigaction 
+-> otherwise getting error of incomplete type from struct sigaction*/
+#define _GNU_SOURCE 
+#include <signal.h>
 
 int main(int arc, char **argv);
 

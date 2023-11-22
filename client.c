@@ -12,5 +12,7 @@
 
 int main(int arc, char **argv)
 {
+	if (arc != 3)
+		ft_printf("Wrong number of arguments. Correct format is ./client <PID> [your message here]!");
 	return (0);
 }
