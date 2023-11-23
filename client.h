@@ -13,6 +13,10 @@
 #ifndef CLIENT_H
 # define CLIENT_H
 
+#include <signal.h>
+#include <stdio.h>
+
 int main(int arc, char **argv);
+static void send_message(int pid, char* message, char* ending);
 
 #endif 
