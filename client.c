@@ -39,7 +39,9 @@ static void send_message(int pid, char* message, char* ending)
 			else
 				kill(pid, SIGUSR2);		
 			bit++;
+			usleep(250);
 		}
+		usleep(250);
 		i++;
 	}
 	if (ending)
