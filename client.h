@@ -15,6 +15,8 @@
 
 #include <signal.h>
 #include <stdio.h>
+#include "libft/libft.h"
+#include "ftprintf/ft_printf.h"
 
 int main(int arc, char **argv);
 static void send_message(int pid, char* message, char* ending);
