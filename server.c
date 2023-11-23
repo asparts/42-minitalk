@@ -38,6 +38,9 @@ int main(int arc, char **argv)
 	sigAction.sa_sigaction = sigHandler;
 	/*sigaction() system call is used to change the action taken by
        a process on receipt of a specific signal.*/
-	sigaction(SIGUSR2, &sigAction, NULL); //TODO: Do I need to user SIGUSR1 or 2 or both ?
+	sigaction(SIGUSR1, &sigAction, NULL);
+	sigaction(SIGUSR2, &sigAction, NULL);
+	while (1)
+		pause();
 	return (0);
 }
