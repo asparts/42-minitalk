@@ -9,11 +9,12 @@
 /*   Updated: 2023/10/18 08:00:48 by mnummi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#define _XOPEN_SOURCE 700
 #include "server.h"
 #include "libft/libft.h"
 #include "ftprintf/ft_printf.h"
 #include <unistd.h>
+#include <signal.h>
 
 /**
  * When a signal is activated, the process sends a signal to the kernel, 
@@ -27,15 +28,20 @@
  * if i == 8 -> all bits / signals received from 8-bit sequence
  * if !c -> nothing was received (all bits were 0 on client side) 
  *   -> just return sigusr2 there
+ * void* context is being needed because function definition
+ * but since it's not used -> (void) context
 */
 static void sigHandler(int signal, siginfo_t* signalInfo, void* context)
 {
 	static char c;
 	static int i;
-
+	//ft_printf("viesti\n");
+	(void) context;
 	if (signal == SIGUSR1)
 		c += 1 << i;
 	i++;
+	//ft_printf("i = %d\n", i);
+	//ft_printf("c = %c\n", c);
 	if (i == 8)
 	{
 		ft_printf("%c", c);
