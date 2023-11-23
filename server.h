@@ -18,5 +18,5 @@
 #include <signal.h>
 
 int main(int arc, char **argv);
-
+static void sigHandler(int signal, siginfo_t* signalInfo, void* context);
 #endif
