@@ -6,7 +6,7 @@
 /*   By: mnummi <mnummi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 07:48:59 by mnummi            #+#    #+#             */
-/*   Updated: 2023/10/18 08:00:48 by mnummi           ###   ########.fr       */
+/*   Updated: 2023/11/24 02:37:54 by mnummi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #define _XOPEN_SOURCE 700
@@ -31,42 +31,40 @@
  * void* context is being needed because function definition
  * but since it's not used -> (void) context
 */
-static void sigHandler(int signal, siginfo_t* signalInfo, void* context)
+static void	sighandler(int signal, siginfo_t *signal_info, void *context)
 {
-	static char c;
-	static int i;
-	//ft_printf("viesti\n");
+	static char	c;
+	static int	i;
+
 	(void) context;
 	if (signal == SIGUSR1)
 		c += 1 << i;
 	i++;
-	//ft_printf("i = %d\n", i);
-	//ft_printf("c = %c\n", c);
 	if (i == 8)
 	{
 		ft_printf("%c", c);
 		if (!c)
-			kill(signalInfo->si_pid, SIGUSR2);
+			kill(signal_info->si_pid, SIGUSR2);
 		c = 0;
 		i = 0;
 	}
 }
 
-int main(int arc, char **argv)
+/**sa_sigaction is action beign taken when signal arrives*/
+/*sigaction() system call is used to change the action taken by
+       a process on receipt of a specific signal.*/
+int	main(int arc, char **argv)
 {
-	struct sigaction sigAction;
+	struct sigaction	sig_action;
 
 	if (arc != 1 && argv)
 		ft_printf("Wrong input. Use ./server");
 	ft_printf("PID: %d\n", getpid());
-	sigemptyset(&sigAction.sa_mask);
-	sigAction.sa_flags = SA_RESTART | SA_SIGINFO;
-	/**sa_sigaction is action beign taken when signal arrives*/
-	sigAction.sa_sigaction = sigHandler;
-	/*sigaction() system call is used to change the action taken by
-       a process on receipt of a specific signal.*/
-	sigaction(SIGUSR1, &sigAction, NULL);
-	sigaction(SIGUSR2, &sigAction, NULL);
+	sigemptyset(&sig_action.sa_mask);
+	sig_action.sa_flags = SA_RESTART | SA_SIGINFO;
+	sig_action.sa_sigaction = sighandler;
+	sigaction(SIGUSR1, &sig_action, NULL);
+	sigaction(SIGUSR2, &sig_action, NULL);
 	while (1)
 		pause();
 	return (0);
