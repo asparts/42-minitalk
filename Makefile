@@ -17,10 +17,10 @@ SERVER = server
 all: $(NAME)
 
 $(SERVER): $(LIBFT)
-	@cc $(CFLAGS) -o $(SERVER) $(SERVER).c $(SERVER).h $(LIBFT) $(FTPRINTF)
+	@cc $(CFLAGS) -o $(SERVER) $(SERVER).c $(LIBFT) $(FTPRINTF)
 
 $(CLIENT): $(LIBFT)
-	@cc $(CFLAGS) -o $(CLIENT) $(CLIENT).c $(CLIENT).h $(LIBFT) $(FTPRINTF)
+	@cc $(CFLAGS) -o $(CLIENT) $(CLIENT).c $(LIBFT) $(FTPRINTF)
 
 $(LIBFT): $(FTPRINTF)
 	@make -s -C $(LIBFTDIR)
@@ -37,6 +37,8 @@ clean:
 	@make -s fclean -C $(LIBFTDIR)
 	@rm -rf $(FTPRINTF)
 	@make -s fclean -C $(FTPRINTFDIR)
+	@rm client
+	@rm server
 
 fclean: clean
 
