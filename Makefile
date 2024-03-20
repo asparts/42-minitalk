@@ -35,6 +35,8 @@ $(NAME): $(SERVER) $(CLIENT)
 clean:
 	@rm -rf $(LIBFT)
 	@make -s fclean -C $(LIBFTDIR)
+	@rm -rf $(FTPRINTF)
+	@make -s fclean -C $(FTPRINTFDIR)
 
 fclean: clean
 
