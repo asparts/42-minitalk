@@ -6,7 +6,7 @@
 /*   By: mnummi <mnummi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 07:49:05 by mnummi            #+#    #+#             */
-/*   Updated: 2023/11/24 02:42:05 by mnummi           ###   ########.fr       */
+/*   Updated: 2024/03/21 10:22:13 by mnummi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	main(int arc, char **argv)
 		ft_printf("Wrong number of arguments! ");
 		ft_printf("Correct format is ./client <PID> [your message here]!");
 	}
-	send_message(ft_atoi(argv[1]), argv[2], "\n\0");
+	else
+		send_message(ft_atoi(argv[1]), argv[2], "\n\0");
 	return (0);
 }
