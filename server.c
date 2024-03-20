@@ -6,7 +6,7 @@
 /*   By: mnummi <mnummi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 07:48:59 by mnummi            #+#    #+#             */
-/*   Updated: 2023/11/24 02:37:54 by mnummi           ###   ########.fr       */
+/*   Updated: 2024/03/21 09:33:03 by mnummi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #define _XOPEN_SOURCE 700
@@ -31,7 +31,7 @@
  * void* context is being needed because function definition
  * but since it's not used -> (void) context
 */
-static void	sighandler(int signal, siginfo_t *signal_info, void *context)
+static void	sigHandler(int signal, siginfo_t *signal_info, void *context)
 {
 	static char	c;
 	static int	i;
@@ -62,7 +62,7 @@ int	main(int arc, char **argv)
 	ft_printf("PID: %d\n", getpid());
 	sigemptyset(&sig_action.sa_mask);
 	sig_action.sa_flags = SA_RESTART | SA_SIGINFO;
-	sig_action.sa_sigaction = sighandler;
+	sig_action.sa_sigaction = sigHandler;
 	sigaction(SIGUSR1, &sig_action, NULL);
 	sigaction(SIGUSR2, &sig_action, NULL);
 	while (1)
