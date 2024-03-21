@@ -6,7 +6,7 @@
 /*   By: mnummi <mnummi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 07:49:09 by mnummi            #+#    #+#             */
-/*   Updated: 2023/11/24 02:44:27 by mnummi           ###   ########.fr       */
+/*   Updated: 2024/03/21 10:32:58 by mnummi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@
 # include <signal.h>
 
 int				main(int arc, char **argv);
-static void		sigHandler(int signal, siginfo_t *signalInfo, void *context);
+static void		sighandler(int signal, siginfo_t *signalInfo, void *context);
 #endif

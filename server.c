@@ -6,7 +6,7 @@
 /*   By: mnummi <mnummi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 07:48:59 by mnummi            #+#    #+#             */
-/*   Updated: 2024/03/21 09:33:03 by mnummi           ###   ########.fr       */
+/*   Updated: 2024/03/21 10:33:24 by mnummi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #define _XOPEN_SOURCE 700
@@ -18,7 +18,7 @@
 
 /**
  * When a signal is activated, the process sends a signal to the kernel, 
- * which then utilizes the sigHandler() function 
+ * which then utilizes the sighandler() function 
  * to perform one of three possible actions: ignore, catch, or default.
  * 
  * Note that 
@@ -31,7 +31,7 @@
  * void* context is being needed because function definition
  * but since it's not used -> (void) context
 */
-static void	sigHandler(int signal, siginfo_t *signal_info, void *context)
+static void	sighandler(int signal, siginfo_t *signal_info, void *context)
 {
 	static char	c;
 	static int	i;
@@ -62,7 +62,7 @@ int	main(int arc, char **argv)
 	ft_printf("PID: %d\n", getpid());
 	sigemptyset(&sig_action.sa_mask);
 	sig_action.sa_flags = SA_RESTART | SA_SIGINFO;
-	sig_action.sa_sigaction = sigHandler;
+	sig_action.sa_sigaction = sighandler;
 	sigaction(SIGUSR1, &sig_action, NULL);
 	sigaction(SIGUSR2, &sig_action, NULL);
 	while (1)
