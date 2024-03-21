@@ -6,7 +6,7 @@
 /*   By: mnummi <mnummi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 07:48:59 by mnummi            #+#    #+#             */
-/*   Updated: 2024/03/21 11:16:34 by mnummi           ###   ########.fr       */
+/*   Updated: 2024/03/21 11:24:52 by mnummi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #define _XOPEN_SOURCE 700
@@ -54,6 +54,17 @@ static void	sighandler(int signal, siginfo_t *signal_info, void *context)
 /**sa_sigaction is action beign taken when signal arrives*/
 /*sigaction() system call is used to change the action taken by
        a process on receipt of a specific signal.*/
+/**
+ * The sa_mask field indicates any signals that should be blocked 
+ * while the signal handler is being executed. 
+ * The sa_flags field determines a number of different things, 
+ * but the important ones are 
+ * - whether we get the extended information (SA_SIGINFO ) 
+ * - and whether system calls that were interrupted by the signal 
+ * are automatically restarted (SA_RESTART), 
+ *
+ * The alternative is that the interrupted system calls will fail, 
+ *  restarting them is obviously a better approach.*/
 int	main(int arc, char **argv)
 {
 	struct sigaction	sig_action;
