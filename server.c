@@ -6,7 +6,7 @@
 /*   By: mnummi <mnummi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 07:48:59 by mnummi            #+#    #+#             */
-/*   Updated: 2024/03/21 11:14:35 by mnummi           ###   ########.fr       */
+/*   Updated: 2024/03/21 11:16:34 by mnummi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #define _XOPEN_SOURCE 700
@@ -27,7 +27,8 @@
  * 
  * if i == 8 -> all bits / signals received from 8-bit sequence
  * if !c -> nothing was received (all bits were 0 on client side) 
- *   -> just return sigusr2 there (this does nothing and makes sure that signal_ * info is being used.
+ *   -> just return sigusr2 there 
+ *   -->this does nothing and makes sure that signal_info is being used.
  * void* context is being needed because function definition
  * but since it's not used -> (void) context
 */
