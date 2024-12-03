@@ -10,15 +10,15 @@ Mandatory part:
  - Use SIGUSR1 & SIGUSR2 signals ONLY
 
 Allowed Functions
-malloc
-free
-write
-getpid
-signal
-sigemptyset & sigaddset
-sigaction
-pause
-kill
-sleep
-usleep
-exit
+ - malloc
+ - free
+ - write
+ - getpid
+ - signal
+ - sigemptyset & sigaddset
+ - sigaction
+ - pause
+ - kill
+ - sleep
+ - usleep
+ - exit
