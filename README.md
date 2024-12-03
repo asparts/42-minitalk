@@ -1,8 +1,7 @@
 42cursus - minitalk
 
-Project Information
 About
-The purpose of this project is to code a small data exchange program using UNIX signals.
+ - The purpose of this project is to code a small data exchange program using UNIX signals.
 
 Mandatory part:
  - Produce server & client executables
