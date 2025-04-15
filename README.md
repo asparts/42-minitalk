@@ -23,14 +23,15 @@ The client encodes each character of the message into binary and sends it to the
 
 
 ## 🗂️ Project Structure
+```
 42-minitalk/ 
-├── client.c # Client source code  <br>
-├── server.c # Server source code  <br>
-├── client_bonus.c # Client with bonus features  <br>
-├── server_bonus.c # Server with bonus features  <br>
-├── Makefile # Build instructions  <br>
-└── README.md # Project documentation <br>
-
+├── client.c # Client source code
+├── server.c # Server source code
+├── client_bonus.c # Client with bonus features
+├── server_bonus.c # Server with bonus features
+├── Makefile # Build instructions
+└── README.md # Project documentation
+```
 
 ---
 
@@ -42,7 +43,7 @@ The client encodes each character of the message into binary and sends it to the
 - 🖥️ Unix-like operating system (e.g., Linux, macOS)
 
 ### 🛠️ Installation & Usage
-
+```
 1. **Clone the repository:**
    git clone https://github.com/asparts/42-minitalk.git
    cd 42-minitalk
@@ -57,7 +58,7 @@ The client encodes each character of the message into binary and sends it to the
 For example:
 ./client 12345 "Hello, World!"
 The server will display: Hello, World!
-
+```
 # 🧹 Cleaning Up
 Remove object files: make clean
 Remove all compiled files: make fclean
