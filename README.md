@@ -60,9 +60,9 @@ For example:
 The server will display: Hello, World!
 ```
 # 🧹 Cleaning Up
-Remove object files: make clean
-Remove all compiled files: make fclean
-Recompile everything: make re
+Remove object files: make clean <br>
+Remove all compiled files: make fclean <br>
+Recompile everything: make re <br>
 
 # 📸 Screenshot
 ![image](https://github.com/user-attachments/assets/ba6b0ecc-f430-4b4e-877f-77369c5ece9b)
